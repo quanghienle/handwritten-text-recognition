@@ -66,4 +66,23 @@ class LetterRecognizer():
 
         self.model = model
 
+    def fit(self, X_train, Y_train, checkpoint_path='', batch_size=128, epochs=20):
+        ''' train the model
+        '''
+        if checkpoint_path != '':
+            # save checkpoint after every epochs
+            model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+                filepath=checkpoint_path,
+                save_weights_only=True,
+                verbose=1
+            )
+
+            self.model.fit(X_train, Y_train, batch_size=batch_size, epochs=epochs, callbacks=[model_checkpoint_callback])
+        else:
+            self.model.fit(X_train, Y_train, batch_size=batch_size, epochs=epochs)
+
+    def evaluate(self, X_test, Y_test):
+        ''' Evaluate the model with test data
+        '''
+        loss, acc = self.model.evaluate(X_test, Y_test)
 
