@@ -35,3 +35,9 @@ class DataLoader():
 # to classify 26 different handwritten letters
 class LetterRecognizer():
 
+    def __init__(self, load_weights=True):
+        ''' initialize the model
+            if load_weights is true, then the model will use the weights that were previously trained (accuracy of 92%)
+        '''
+        self.create_model(load_weights)
+
