@@ -86,3 +86,12 @@ class LetterRecognizer():
         '''
         loss, acc = self.model.evaluate(X_test, Y_test)
 
+    def predict(self, img, alphabets):
+        ''' predict the label of a given handwritten letter image
+        '''
+        img = np.array(img).reshape(28,28,1)
+        pred = self.model.predict(np.array([img]))
+        res = np.argmax(pred, axis=1)[0]
+        return alphabets[res]
+
+
