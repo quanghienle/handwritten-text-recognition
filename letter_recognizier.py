@@ -31,3 +31,7 @@ class DataLoader():
         self.Y_test = to_categorical(Y_test,num_classes=27)
 
 
+# this class creates a simple 8-layered Convolutional Neiral Network model
+# to classify 26 different handwritten letters
+class LetterRecognizer():
+
