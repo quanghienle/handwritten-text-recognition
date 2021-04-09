@@ -2,6 +2,15 @@ from emnist import list_datasets
 from emnist import extract_training_samples
 from emnist import extract_test_samples
 
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+from keras.models import Sequential
+from keras.layers import Conv2D,Dense,MaxPool2D,Flatten,Dropout
+from keras.utils.np_utils import to_categorical 
+import matplotlib.pyplot as plt
+
+
 # this class is uesd to generate the handwritten letters dataset
 # in order to train the model
 class DataLoader():
