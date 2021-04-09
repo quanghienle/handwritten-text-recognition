@@ -41,3 +41,29 @@ class LetterRecognizer():
         '''
         self.create_model(load_weights)
 
+    def create_model(self, load_weights):
+        ''' contruct the CNN model
+        '''
+        model = Sequential()
+        model.add(Conv2D(64,(3,3),input_shape=(28,28,1),activation='relu'))
+        model.add(Conv2D(32,(3,3),activation='relu'))
+        model.add(MaxPool2D())
+        model.add(Conv2D(32,(3,3),activation='relu'))
+        model.add(Conv2D(16,(3,3),activation='relu'))
+        model.add(Flatten())
+        model.add(Dense(128,activation='relu'))
+        model.add(Dense(27,activation='softmax'))
+
+        model.compile(optimizer='adam',metrics=['accuracy'],loss='categorical_crossentropy')
+
+        #  print(model.summary())
+
+        if load_weights:
+            # path to checkpoint
+            checkpoint_path = './model_checkpoints/model_ckpt'
+            # load weights
+            model.load_weights(checkpoint_path)
+
+        self.model = model
+
+
