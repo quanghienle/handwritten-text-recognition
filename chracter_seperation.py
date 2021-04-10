@@ -14,3 +14,13 @@ def imageProcessing (path):
 
     return edgedImage , grayImage
 
+
+def findContours(processedImage, sort_method='left-to-right'):
+
+    #Find and grab found contours from edged image
+    contours = cv2.findContours(processedImage[0].copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    contours = imutils.grab_contours(contours)
+
+    #Sorting the result from top to bottom 
+    contours = sort_contours(contours, method = sort_method)[0] 
+    return contours
