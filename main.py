@@ -16,12 +16,11 @@ LetterRecognizer = LetterRecognizer()
 DataLoader = DataLoader()
 
 # uncomment to train the model
-
 #  LetterRecognizer.fit(DataLoader.X_train, DataLoader.Y_train)
 
 # uncomment to evaluate the model
-print('Evaluating the model...')
-LetterRecognizer.evaluate(DataLoader.X_test, DataLoader.Y_test)
+#  print('Evaluating the model...')
+#  LetterRecognizer.evaluate(DataLoader.X_test, DataLoader.Y_test)
 
 print('Making prediction...')
 for i in chars_arr:
