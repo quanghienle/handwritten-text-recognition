@@ -10,4 +10,4 @@ Instructions:
   - Ensure that all the necessary packages are installed (e.g. OpenCV, TensorFlow...)
   - To run the program: `$ python3 main.py`
   - To test with different images: in `main.python`, change the test image path (line 60) to one of the test images in the
-      `/images` folder
+      `/images` folder (e.g. `1.png`, `2.png`, `3.png`...)
